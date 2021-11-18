@@ -9,11 +9,15 @@
 import RxSwift
 import ObjectMapper
 
-class UserService {
+protocol Service {
+    func getUsers(callback:@escaping (Bool, [User]?, String?) -> Void)
+}
     
-    static let bag = DisposeBag()
+
+class UserService: Service {
+    let bag = DisposeBag()
     
-    static func getUsers(callback:@escaping (Bool, [User]?, String?) -> Void) {
+    func getUsers(callback:@escaping (Bool, [User]?, String?) -> Void) {
         moyaProvider.rx
             .request(GithubAPIService.getUsers())
             .subscribe { event in
@@ -44,7 +48,7 @@ class UserService {
             .disposed(by: bag)
     }
     
-    static func getUser(username: String, callback:@escaping (Bool, User?, String?) -> Void) {
+    func getUser(username: String, callback:@escaping (Bool, User?, String?) -> Void) {
         moyaProvider.rx
             .request(GithubAPIService.getUser(username: username))
             .subscribe { event in

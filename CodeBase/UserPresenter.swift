@@ -9,16 +9,19 @@
 import Foundation
 
 class UserPresenter {
-    var view: UsersView!
     
-    func attachView(view: UsersView) {
+    var service: Service = UserService()
+    
+    var view: UserListInterface!
+        
+    func attachView(view: UserListInterface) {
         self.view = view
     }
     
     func fetchData() {
         view.showLoading()
         
-        UserService.getUsers() { (success, data, errorMessage) in
+        service.getUsers() { (success, data, errorMessage) in
             
             self.view.hideLoading()
             

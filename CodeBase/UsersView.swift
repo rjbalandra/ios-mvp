@@ -21,7 +21,7 @@ class UsersView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var tableData = [User]()
     let presenter = UserPresenter()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -158,22 +158,16 @@
 		861D1FE61F6F45AB006DEFA0 /* CodeBase */ = {
 			isa = PBXGroup;
 			children = (
+				CE29CA472746644000F9586D /* Helper */,
+				CE29CA462746643400F9586D /* Models */,
 				861D1FE71F6F45AB006DEFA0 /* AppDelegate.swift */,
-				861D1FEB1F6F45AB006DEFA0 /* Main.storyboard */,
-				861D201A1F6F480B006DEFA0 /* Constans */,
-				861D202C1F6FBCF8006DEFA0 /* Extension */,
-				861D201F1F6F4D5E006DEFA0 /* UserDefaults */,
-				861D20191F6F47FB006DEFA0 /* Persistents */,
-				861D203B1F6FCDDC006DEFA0 /* CustomCells */,
-				8632523A1F71F8F40014CE1C /* CustomViews */,
-				861D20151F6F47AA006DEFA0 /* APIManager */,
-				861D20171F6F47CF006DEFA0 /* Models */,
-				861D20161F6F47C7006DEFA0 /* Services */,
-				861D20181F6F47D5006DEFA0 /* ViewPresenters */,
 				861D1FEE1F6F45AB006DEFA0 /* Assets.xcassets */,
-				861D1FF01F6F45AB006DEFA0 /* LaunchScreen.storyboard */,
 				861D1FF31F6F45AB006DEFA0 /* Info.plist */,
+				861D1FF01F6F45AB006DEFA0 /* LaunchScreen.storyboard */,
+				861D1FEB1F6F45AB006DEFA0 /* Main.storyboard */,
+				CE29CA4527465E0000F9586D /* Presenters */,
 				865464BE216C8D63003A17C4 /* readme.md */,
+				CE29CA4427465DED00F9586D /* Views */,
 			);
 			path = CodeBase;
 			sourceTree = "<group>";
@@ -261,7 +255,6 @@
 				861D202D1F6FBD2B006DEFA0 /* Response.swift */,
 				861D202F1F6FBD3F006DEFA0 /* UIColor.swift */,
 				861D20331F6FBD54006DEFA0 /* UIView.swift */,
-				861D20311F6FBD4B006DEFA0 /* UIViewController.swift */,
 				861D20391F6FC2D2006DEFA0 /* UIFont.swift */,
 				861D20421F6FE252006DEFA0 /* String.swift */,
 			);
@@ -271,7 +264,6 @@
 		861D20351F6FC261006DEFA0 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				861D20371F6FC282006DEFA0 /* UsersView.swift */,
 				861D20401F6FDE28006DEFA0 /* UserPresenter.swift */,
 			);
 			name = User;
@@ -280,7 +272,6 @@
 		861D20361F6FC267006DEFA0 /* Repo */ = {
 			isa = PBXGroup;
 			children = (
-				863252321F70ABFA0014CE1C /* RepoView.swift */,
 				863252381F70B8510014CE1C /* RepoPresenter.swift */,
 			);
 			name = Repo;
@@ -315,6 +306,63 @@
 				21907B14DA22BDAACF125F49 /* Pods-CodeBaseUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE29CA4227465D9F00F9586D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				861D20191F6F47FB006DEFA0 /* Persistents */,
+				861D201F1F6F4D5E006DEFA0 /* UserDefaults */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		CE29CA4327465DD800F9586D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				861D20151F6F47AA006DEFA0 /* APIManager */,
+				861D20161F6F47C7006DEFA0 /* Services */,
+				861D20171F6F47CF006DEFA0 /* Models */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		CE29CA4427465DED00F9586D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				863252321F70ABFA0014CE1C /* RepoView.swift */,
+				861D20371F6FC282006DEFA0 /* UsersView.swift */,
+				861D20311F6FBD4B006DEFA0 /* UIViewController.swift */,
+				861D203B1F6FCDDC006DEFA0 /* CustomCells */,
+				8632523A1F71F8F40014CE1C /* CustomViews */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CE29CA4527465E0000F9586D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				861D20181F6F47D5006DEFA0 /* ViewPresenters */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		CE29CA462746643400F9586D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE29CA4327465DD800F9586D /* Data */,
+				CE29CA4227465D9F00F9586D /* Domain */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CE29CA472746644000F9586D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				861D201A1F6F480B006DEFA0 /* Constans */,
+				861D202C1F6FBCF8006DEFA0 /* Extension */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		E0866E88620E4C092820FB69 /* Frameworks */ = {
@@ -422,6 +470,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -528,7 +577,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CodeBase/Pods-CodeBase-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CodeBase/Pods-CodeBase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -559,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeBase/Pods-CodeBase-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CodeBase/Pods-CodeBase-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
