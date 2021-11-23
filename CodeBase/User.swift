@@ -15,6 +15,10 @@ struct User: Mappable {
     var webURL: String?
     var username: String?
     
+    init(id: Int) {
+        self.id = id
+    }
+    
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {

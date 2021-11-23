@@ -10,10 +10,14 @@ import Foundation
 
 class UserPresenter {
     
-    var service: Service = UserService()
+    var service: Service
     
     var view: UserListInterface!
         
+    init (service: Service) {
+        self.service = service
+    }
+    
     func attachView(view: UserListInterface) {
         self.view = view
     }
@@ -21,16 +25,25 @@ class UserPresenter {
     func fetchData() {
         view.showLoading()
         
-        service.getUsers() { (success, data, errorMessage) in
+        
+        service.getUsers() { (result) in
             
             self.view.hideLoading()
             
-            if let users = data, !users.isEmpty {
-                self.view.reloadList(data: users)
-            }
-            else {
+            
+            switch result {
+            case .success(let users):
+                self.view.reloadList(data: users ?? [])
+            case .failure(let error):
                 self.view.showEmptyView()
             }
+            
+//            if let users = data, !users.isEmpty {
+//                self.view.reloadList(data: users)
+//            }
+//            else {
+//                self.view.showEmptyView()
+//            }
         }
     }
 }

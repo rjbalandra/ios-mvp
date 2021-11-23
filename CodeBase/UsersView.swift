@@ -20,7 +20,7 @@ class UsersView: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var tableData = [User]()
-    let presenter = UserPresenter()
+    let presenter = UserPresenter(service: UserService())
         
     override func viewDidLoad() {
         super.viewDidLoad()

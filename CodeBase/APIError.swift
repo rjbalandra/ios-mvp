@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct APIError: Mappable {
+struct APIError: Mappable, LocalizedError {
     
     var message: String?
     
@@ -16,5 +16,16 @@ struct APIError: Mappable {
     
     mutating func mapping(map: Map) {
         message <- map["message"]
+    }
+    
+    var errorDescription: String? {
+        return message
+    }
+}
+
+
+struct LocalError: Error {
+    var errorDescription: String? {
+        return "This is an error"
     }
 }
